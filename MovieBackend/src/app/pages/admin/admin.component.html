@@ -1,0 +1,80 @@
+
+<nav class="navbar navbar-light bg-primary">
+  <div class="container-fluid">
+    <h1 style="color:white">Admin Page</h1>
+    <div class="d-flex">
+      <button  (click)="clickAddMovie()"  type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" >Add Movie</button>
+    </div>
+  </div>
+</nav>
+
+<table class="table mt-3">
+  <thead>
+    <tr>
+      <th scope="col">Movie Id</th>
+      <th scope="col">Movie Name</th>
+      <th scope="col">Movie Image</th>
+      <th scope="col">Movie Desription</th>
+      <th scope="col">Movie Price</th>
+      <th scope="col">Release Date</th>
+      <th scope="col">Action</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of moviedata">
+      <td>{{row.mid}}</td>
+      <td>{{row.mname}}</td>
+      <td>{{row.mimage}}</td>
+      <td>{{row.mdescription}}</td>
+      <td>{{row.price}}</td>
+      <td>{{row.mrelease_date}}</td>
+      <td>
+        <button  (click)="onedit(row)" type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn-btn-info">Edit</button>
+        <button (click)="deleteMovie(row)"    class="btn-btn-danger mx-3">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Movie Details</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Movie Nmae</label>
+            <input type="text" formControlName="mname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Movie Image</label>
+            <input type="text" formControlName="mimage" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Movie Description</label>
+            <input type="text"  formControlName="mdescription" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Movie Price</label>
+            <input type="text"  formControlName="price" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Release Date</label>
+            <input type="text"  formControlName="mrelease_date" class="form-control" id="exampleInputPassword1">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button"  id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" *ngIf="showAdd" (click)="postMovieDetails()" class="btn btn-primary">Add</button>
+        <button type="button" *ngIf="showUpdate"  (click)="updateMovieDetails()" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+</div>

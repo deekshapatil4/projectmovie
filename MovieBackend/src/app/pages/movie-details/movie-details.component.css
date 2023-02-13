@@ -1,0 +1,82 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin:3rem ;
+}
+.cointaner >*{
+  min-width: 25rem;
+  max-width: 40rem;
+}
+img{
+  flex: 1  0;
+  object-fit: fill;
+  height:30rem ;
+  margin:1rem;
+  border-radius:3rem ;
+}
+.details{
+  display: flex;
+  width: 100%;
+   flex-direction:column;
+
+  flex: 1 0;
+  border: 3rem;
+  padding: 2rem;
+  color: orangered;
+  margin-left: 1rem;
+
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+
+}
+.name{
+  font-weight: 2rem;
+  font-size: 2.5rem;
+  }
+  .name::before{
+    content:"Movie :" ;
+
+    font-size: 2rem;
+  }
+  .description{
+
+    margin: 0.3rem 0;
+  }
+  .description::before{
+    content: "description :";
+  }
+  .price{
+    font-size: 1.5rem;
+    margin: 0.9rem 2rem 1rem 0;
+    color:darkcyan
+  }
+  .price::before{
+    content: " TicketPrice : ";
+    color:#e72929;
+  }
+.release{
+  color: blue;
+  margin: 1rem 2rem 2rem 0;
+}
+.release::before{
+  content: "Release-Date :";
+}
+button{
+  background-color: #e72929;
+  color:white;
+  border:none ;
+  font-size: 1.2rem;
+  padding: 1rem;
+  border-radius: 5rem;
+  outline: no;
+}
+button:hover{
+  opacity:0.9 ;
+  cursor: pointer;
+}
+

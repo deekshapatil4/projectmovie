@@ -1,0 +1,25 @@
+<div  *ngIf="moviedetails" class="container">
+  <img [src]="moviedetails.mimage">
+  <div class="details">
+    <div class="header">
+      <span class="name">
+        {{moviedetails.mname}}
+      </span>
+    </div>
+      <div class="description">
+        {{moviedetails.mdescription}}
+      </div>
+      <div class="price">
+        {{moviedetails.price}}
+      </div>
+      <div class="release">
+        {{moviedetails.mrelease_date | date:"YYY-MM-DD"}}
+      </div>
+      <button (click)="bookticket()">Book Ticket</button>
+    </div>
+
+
+
+</div>
+
+
